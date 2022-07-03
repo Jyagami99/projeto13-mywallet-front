@@ -1,5 +1,15 @@
+import "../assets/css/reset.css";
+import SignIn from "./SignIn/SignIn";
+// import SignUP from "./SignUp";
+import GlobalStyles from "../assets/css/GlobalStyle";
+
 function App() {
-  return <><h1>BOM DIA</h1></>;
+  return (
+    <>
+      <GlobalStyles />
+      <SignIn />
+    </>
+  );
 }
 
 export default App;
