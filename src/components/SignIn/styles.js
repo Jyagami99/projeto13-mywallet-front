@@ -5,7 +5,7 @@ export const LoginContainer = styled.main`
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-itens: center;
   text-align: center;
   padding: 70px 30px;

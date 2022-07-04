@@ -1,23 +1,57 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./styles";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import UserContext from "../../contexts/UserContext";
 import { FormLogin, LoginContainer } from "./styles";
+import axios from "axios";
 
 function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const body = { email, password };
+    try {
+      const promise = await axios.post("http://localhost:5000/signin", body);
+      const { token, name } = promise.data;
+
+      setUser({ name, token });
+      navigate("/profile");
+    } catch (error) {
+      alert("Ocorreu um erro, por favor tente novamente!");
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <LoginContainer>
         <h1>MyWallet</h1>
         <FormLogin>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Senha" />
-          <button type="submit" name="Entrar">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit" onClick={handleSubmit} name="Entrar">
             Entrar
           </button>
-          <span>
-            <Link to="/signup">Primeira vez? Cadastre-se!</Link>
-          </span>
         </FormLogin>
+        <span>
+          <Link to="/signup">Primeira vez? Cadastre-se!</Link>
+        </span>
       </LoginContainer>
     </>
   );
