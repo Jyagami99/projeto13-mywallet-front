@@ -20,7 +20,7 @@ function Profile() {
     console.log(user);
     async function getUserData() {
       try {
-        const response = await axios.get("http://localhost:5000/transactions", {
+        const response = await axios.get("https://my-wallet-back-joao-marcelo.herokuapp.com/transactions", {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

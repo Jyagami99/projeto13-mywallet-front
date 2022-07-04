@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { SignUpContainer, FormSignUp } from "./styles";
+import axios from "axios";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -14,7 +14,7 @@ function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/signup", {
+      await axios.post("https://my-wallet-back-joao-marcelo.herokuapp.com/signup", {
         name,
         email,
         password,

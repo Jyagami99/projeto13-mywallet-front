@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Container, Form } from "./styles";
 
 import UserContext from "../../contexts/UserContext";
-import { Container, Form } from "./styles";
 
 function Deposit() {
   const [value, setValue] = useState("");
@@ -23,7 +23,7 @@ function Deposit() {
       headers: { Authorization: `Bearer ${user.token}` },
     };
     try {
-      await axios.post("http://localhost:5000/transactions", body, headers);
+      await axios.post("https://my-wallet-back-joao-marcelo.herokuapp.com/transactions", body, headers);
       alert("Registro feito com sucesso!");
       navigate("/profile");
     } catch (error) {
