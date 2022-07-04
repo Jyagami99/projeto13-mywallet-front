@@ -15,14 +15,14 @@ function SignIn() {
     e.preventDefault();
     const body = { email, password };
     try {
-      const promise = await axios.post("http://localhost:5000/signin", body);
-      const { token, name } = promise.data;
+      const response = await axios.post("http://localhost:5000/signin", body);
+      const { token, name } = response.data;
+      console.log(user, token);
 
       setUser({ name, token });
       navigate("/profile");
     } catch (error) {
       alert("Ocorreu um erro, por favor tente novamente!");
-      console.log(error);
     }
   }
 

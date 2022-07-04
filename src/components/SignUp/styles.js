@@ -16,7 +16,6 @@ export const SignUpContainer = styled.main`
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
-    line-height: 50px;
   }
 `;
 
@@ -40,7 +39,6 @@ export const FormSignUp = styled.form`
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
-    line-height: 23px;
 
     color: #ffffff;
   }
@@ -48,7 +46,6 @@ export const FormSignUp = styled.form`
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
-    line-height: 18px;
 
     color: #ffffff;
   }
