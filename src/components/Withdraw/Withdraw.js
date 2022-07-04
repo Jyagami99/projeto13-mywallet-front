@@ -5,7 +5,6 @@ import { Container, Form } from "./styles";
 
 import UserContext from "../../contexts/UserContext";
 
-
 function Withdraw() {
   const [value, setValue] = useState("");
   const [description, setDescription] = useState("");
@@ -25,16 +24,18 @@ function Withdraw() {
     };
 
     try {
-      await axios.post("https://my-wallet-back-joao-marcelo.herokuapp.com/transactions", body, headers);
+      await axios.post(
+        "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+        body,
+        headers
+      );
       alert("Registro feito com sucesso!");
       navigate("/profile");
-
     } catch (error) {
-      console.log("An error occurred.");
       console.log(error);
     }
   }
-  
+
   return (
     <Container>
       <h1>Nova saída</h1>

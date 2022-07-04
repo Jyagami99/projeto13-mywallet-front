@@ -14,12 +14,15 @@ function SignUp() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("https://my-wallet-back-joao-marcelo.herokuapp.com/signup", {
-        name,
-        email,
-        password,
-        confirmPassword,
-      });
+      await axios.post(
+        "https://my-wallet-back-joao-marcelo.herokuapp.com/signup",
+        {
+          name,
+          email,
+          password,
+          confirmPassword,
+        }
+      );
 
       alert("Usuário cadastrado com sucesso!");
       navigate("/");

@@ -16,7 +16,10 @@ function SignIn() {
     e.preventDefault();
     const body = { email, password };
     try {
-      const response = await axios.post("https://my-wallet-back-joao-marcelo.herokuapp.com/signin", body);
+      const response = await axios.post(
+        "https://my-wallet-back-joao-marcelo.herokuapp.com/signin",
+        body
+      );
       const { token, name } = response.data;
       console.log(user, token);
 
