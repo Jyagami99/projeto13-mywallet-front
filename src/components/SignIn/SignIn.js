@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles";
 import { FormLogin, LoginContainer } from "./styles";
 
@@ -13,7 +14,9 @@ function SignIn() {
           <button type="submit" name="Entrar">
             Entrar
           </button>
-          <a>Primeira vez? Cadastre-se!</a>
+          <span>
+            <Link to="/signup">Primeira vez? Cadastre-se!</Link>
+          </span>
         </FormLogin>
       </LoginContainer>
     </>

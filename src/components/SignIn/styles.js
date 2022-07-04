@@ -35,11 +35,20 @@ export const FormLogin = styled.form`
     background-color: #a328d6;
     border-radius: 5px;
     margin-bottom: 36px;
+    cursor: pointer;
 
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
+
+    color: #ffffff;
+  }
+  span {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
 
     color: #ffffff;
   }
