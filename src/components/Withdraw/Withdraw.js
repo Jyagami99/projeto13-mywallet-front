@@ -25,7 +25,7 @@ function Withdraw() {
     };
 
     try {
-      await axios.post("http://localhost:5000/transactions", body, headers);
+      await axios.post("https://my-wallet-back-joao-marcelo.herokuapp.com/transactions", body, headers);
       alert("Registro feito com sucesso!");
       navigate("/profile");
 
