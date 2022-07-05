@@ -15,8 +15,8 @@ function SignUp() {
     e.preventDefault();
     try {
       await axios.post(
-        // "https://my-wallet-back-joao-marcelo.herokuapp.com/signup",
-        "http://localhost:5000/signup",
+        "https://my-wallet-back-joao-marcelo.herokuapp.com/signup",
+        // "http://localhost:5000/signup",
         {
           name,
           email,

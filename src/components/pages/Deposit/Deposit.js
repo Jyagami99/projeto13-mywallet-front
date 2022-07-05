@@ -24,8 +24,8 @@ function Deposit() {
     };
     try {
       await axios.post(
-        // "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
-        "http://localhost:5000/transactions",
+        "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+        // "http://localhost:5000/transactions",
         body,
         headers
       );
