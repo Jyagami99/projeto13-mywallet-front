@@ -58,7 +58,11 @@ export const Footer = styled.div`
 
   button {
     height: 114px;
-
+    width: 150px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    color: #ffffff;
     background: #a328d6;
     border-radius: 5px;
   }

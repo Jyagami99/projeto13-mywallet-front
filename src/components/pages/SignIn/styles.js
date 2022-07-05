@@ -16,6 +16,7 @@ export const LoginContainer = styled.main`
     font-style: normal;
     font-weight: 400;
     font-size: 32px;
+    margin-bottom: 30px;
   }
 `;
 
