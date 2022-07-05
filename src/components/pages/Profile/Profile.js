@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Transaction from "../Transaction/Transaction";
+import Transaction from "../../Transaction";
 import axios from "axios";
 
-import UserContext from "../../contexts/UserContext";
+import UserContext from "../../../contexts/UserContext";
 import {
   Header,
   TransactionsContainer,
@@ -16,17 +16,19 @@ function Profile() {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    debugger;
-    console.log(user);
     async function getUserData() {
       try {
-        const response = await axios.get("https://my-wallet-back-joao-marcelo.herokuapp.com/transactions", {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
-        console.log(response);
-        setTransactions(response.data);
+        const { data } = await axios.get(
+          // "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+          "http://localhost:5000/transactions",
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+        console.log(data);
+        setTransactions(data);
       } catch (error) {
         console.log("foi aqui!");
         alert("Ocorreu um erro, por favor tente novamente!");
@@ -35,7 +37,7 @@ function Profile() {
     }
 
     getUserData();
-  }, []);
+  }, [user]);
 
   function buildTransactions() {
     if (transactions.length > 0) {

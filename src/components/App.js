@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp/SignUp";
-import Profile from "./Profile/Profile";
-import Deposit from "./Deposit/Deposit";
-import Withdraw from "./Withdraw/Withdraw";
+import SignIn from "./pages/SignIn/SignIn";
+import SignUp from "./pages/SignUp/SignUp";
+import Profile from "./pages/Profile/Profile";
+import Deposit from "./pages/Deposit/Deposit";
+import Withdraw from "./pages/Withdraw/Withdraw";
 import GlobalStyles from "../assets/css/GlobalStyle";
 
 import UserContext from "../contexts/UserContext";

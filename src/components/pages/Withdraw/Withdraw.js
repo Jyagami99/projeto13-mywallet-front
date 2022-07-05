@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Container, Form } from "./styles";
 
-import UserContext from "../../contexts/UserContext";
+import UserContext from "../../../contexts/UserContext";
 
-function Deposit() {
+function Withdraw() {
   const [value, setValue] = useState("");
   const [description, setDescription] = useState("");
 
@@ -15,16 +15,18 @@ function Deposit() {
   async function handleSubmit(e) {
     e.preventDefault();
     const body = {
-      type: "deposit",
+      type: "withdraw",
       description,
       value: parseFloat(value),
     };
     const headers = {
       headers: { Authorization: `Bearer ${user.token}` },
     };
+
     try {
       await axios.post(
-        "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+        // "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+        "http://localhost:5000/transactions",
         body,
         headers
       );
@@ -37,7 +39,7 @@ function Deposit() {
 
   return (
     <Container>
-      <h1>Nova entrada</h1>
+      <h1>Nova saída</h1>
       <Form>
         <input
           type="number"
@@ -59,4 +61,4 @@ function Deposit() {
   );
 }
 
-export default Deposit;
+export default Withdraw;

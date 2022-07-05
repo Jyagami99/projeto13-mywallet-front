@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Container, Form } from "./styles";
 
-import UserContext from "../../contexts/UserContext";
+import UserContext from "../../../contexts/UserContext";
 
-function Withdraw() {
+function Deposit() {
   const [value, setValue] = useState("");
   const [description, setDescription] = useState("");
 
@@ -15,21 +15,21 @@ function Withdraw() {
   async function handleSubmit(e) {
     e.preventDefault();
     const body = {
-      type: "withdraw",
+      type: "deposit",
       description,
       value: parseFloat(value),
     };
     const headers = {
       headers: { Authorization: `Bearer ${user.token}` },
     };
-
     try {
       await axios.post(
-        "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+        // "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+        "http://localhost:5000/transactions",
         body,
         headers
       );
-      alert("Registro feito com sucesso!");
+      alert("Transação feita com sucesso!");
       navigate("/profile");
     } catch (error) {
       console.log(error);
@@ -38,7 +38,7 @@ function Withdraw() {
 
   return (
     <Container>
-      <h1>Nova saída</h1>
+      <h1>Nova entrada</h1>
       <Form>
         <input
           type="number"
@@ -60,4 +60,4 @@ function Withdraw() {
   );
 }
 
-export default Withdraw;
+export default Deposit;
