@@ -1,6 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FormLogin, LoginContainer } from "./styles";
+import { useNavigate } from "react-router-dom";
+import {
+  Button,
+  FormLogin,
+  H1,
+  Input,
+  LinkPage,
+  LoginContainer,
+} from "./styles";
 import axios from "axios";
 
 import UserContext from "../../../contexts/UserContext";
@@ -34,28 +41,30 @@ function SignIn() {
   return (
     <>
       <LoginContainer>
-        <h1>MyWallet</h1>
+        <H1>MyWallet</H1>
         <FormLogin>
-          <input
+          <Input
             type="email"
             name="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
-          <input
+          <Input
             type="password"
             name="password"
             placeholder="Senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
-          <button type="submit" onClick={handleSubmit} name="Entrar">
+          <Button type="submit" onClick={handleSubmit} name="Entrar">
             Entrar
-          </button>
+          </Button>
         </FormLogin>
         <span>
-          <Link to="/signup">Primeira vez? Cadastre-se!</Link>
+          <LinkPage to="/signup">Primeira vez? Cadastre-se!</LinkPage>
         </span>
       </LoginContainer>
     </>

@@ -5,7 +5,7 @@ import SignUp from "./pages/SignUp/SignUp";
 import Profile from "./pages/Profile/Profile";
 import Deposit from "./pages/Deposit/Deposit";
 import Withdraw from "./pages/Withdraw/Withdraw";
-import GlobalStyles from "../assets/css/GlobalStyle";
+import GlobalStyles from "../assets/styles/GlobalStyle";
 
 import UserContext from "../contexts/UserContext";
 
