@@ -20,8 +20,8 @@ function SignUp() {
     e.preventDefault();
     try {
       await axios.post(
-        "https://my-wallet-back-joao-marcelo.herokuapp.com/signup",
-        // "http://localhost:5000/signup",
+        // "https://my-wallet-back-joao-marcelo.herokuapp.com/signup",
+        "http://localhost:5000/signup",
         {
           name,
           email,
@@ -38,43 +38,40 @@ function SignUp() {
     }
   }
   return (
-    <>
-      <Container>
-        <Header>MyWallet</Header>
-        <FormLogin>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Nome"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Input
-            type="password"
-            name="password"
-            placeholder="Senha"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Input
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirme a senha"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          <Button type="submit" name="Entrar" onClick={handleSubmit}>
-            Entrar
-          </Button>
-        </FormLogin>
-        <span>
-          <LinkPage to="/">Já tem uma conta? Entre agora!</LinkPage>
-        </span>
-      </Container>
-    </>
+    <Container>
+      <Header>MyWallet</Header>
+      <FormLogin>
+        <Input
+          type="text"
+          name="name"
+          placeholder="Nome"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Input
+          type="password"
+          name="password"
+          placeholder="Senha"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirme a senha"
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <Button type="submit" name="Entrar" onClick={handleSubmit}>
+          Entrar
+        </Button>
+      </FormLogin>
+
+      <LinkPage to="/">Já tem uma conta? Entre agora!</LinkPage>
+    </Container>
   );
 }
 

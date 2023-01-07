@@ -19,8 +19,8 @@ function Profile() {
     async function getUserData() {
       try {
         const { data } = await axios.get(
-          "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
-          // "http://localhost:5000/transactions",
+          // "https://my-wallet-back-joao-marcelo.herokuapp.com/transactions",
+          "http://localhost:5000/transactions",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -78,25 +78,23 @@ function Profile() {
   const transacationsSection = buildTransactions();
   const balanceSection = buildBalance();
   return (
-    <>
-      <ProfileContainer>
-        <Header>
-          <h1>Olá, {user.name}</h1>
-          <ion-icon name="log-out-outline"></ion-icon>
-        </Header>
-        <TransactionsContainer>
-          <div>{transacationsSection}</div>
-        </TransactionsContainer>
-        <Footer>
-          <Link to="/deposit">
-            <button>Nova Entrada</button>
-          </Link>
-          <Link to="/withdraw">
-            <button>Nova Saída</button>
-          </Link>
-        </Footer>
-      </ProfileContainer>
-    </>
+    <ProfileContainer>
+      <Header>
+        <h1>Olá, {user.name}</h1>
+        <ion-icon name="log-out-outline"></ion-icon>
+      </Header>
+      <TransactionsContainer>
+        <div>{transacationsSection}</div>
+      </TransactionsContainer>
+      <Footer>
+        <Link to="/deposit">
+          <button>Nova Entrada</button>
+        </Link>
+        <Link to="/withdraw">
+          <button>Nova Saída</button>
+        </Link>
+      </Footer>
+    </ProfileContainer>
   );
 }
 

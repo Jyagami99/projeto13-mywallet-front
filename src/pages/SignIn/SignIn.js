@@ -21,8 +21,8 @@ function SignIn() {
     const body = { email, password };
     try {
       const { data } = await axios.post(
-        "https://my-wallet-back-joao-marcelo.herokuapp.com/signin",
-        // "http://localhost:5000/signin",
+        // "https://my-wallet-back-joao-marcelo.herokuapp.com/signin",
+        "http://localhost:5000/signin",
         body
       );
       const { token, name } = data;
@@ -36,35 +36,32 @@ function SignIn() {
   }
 
   return (
-    <>
-      <Container>
-        <Header>MyWallet</Header>
-        <FormLogin>
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <Input
-            type="password"
-            name="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <Button type="submit" onClick={handleSubmit} name="Entrar">
-            Entrar
-          </Button>
-        </FormLogin>
-        <span>
-          <LinkPage to="/signup">Primeira vez? Cadastre-se!</LinkPage>
-        </span>
-      </Container>
-    </>
+    <Container>
+      <Header>MyWallet</Header>
+      <FormLogin>
+        <Input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <Input
+          type="password"
+          name="password"
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <Button type="submit" onClick={handleSubmit} name="Entrar">
+          Entrar
+        </Button>
+      </FormLogin>
+
+      <LinkPage to="/signup">Primeira vez? Cadastre-se!</LinkPage>
+    </Container>
   );
 }
 
