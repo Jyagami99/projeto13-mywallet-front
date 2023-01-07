@@ -1,16 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Button,
-  FormLogin,
-  H1,
-  Input,
-  LinkPage,
-  LoginContainer,
-} from "./styles";
 import axios from "axios";
-
-import UserContext from "../../../contexts/UserContext";
+import UserContext from "./../../contexts/UserContext";
+import { Container } from "../../components/Container";
+import { Header } from "../../components/Header";
+import { FormLogin } from "../../components/FormLogin";
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
+import { LinkPage } from "../../components/LinkPage";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -40,8 +37,8 @@ function SignIn() {
 
   return (
     <>
-      <LoginContainer>
-        <H1>MyWallet</H1>
+      <Container>
+        <Header>MyWallet</Header>
         <FormLogin>
           <Input
             type="email"
@@ -66,7 +63,7 @@ function SignIn() {
         <span>
           <LinkPage to="/signup">Primeira vez? Cadastre-se!</LinkPage>
         </span>
-      </LoginContainer>
+      </Container>
     </>
   );
 }

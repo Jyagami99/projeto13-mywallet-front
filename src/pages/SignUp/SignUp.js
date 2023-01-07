@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { SignUpContainer, FormSignUp } from "./styles";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Container } from "../../components/Container";
+import { Header } from "../../components/Header";
+import { FormLogin } from "../../components/FormLogin";
+import { Input } from "../../components/Input";
+import { Button } from "../../components/Button";
+import { LinkPage } from "../../components/LinkPage";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -34,41 +39,41 @@ function SignUp() {
   }
   return (
     <>
-      <SignUpContainer>
-        <h1>MyWallet</h1>
-        <FormSignUp>
-          <input
+      <Container>
+        <Header>MyWallet</Header>
+        <FormLogin>
+          <Input
             type="text"
             name="name"
             placeholder="Nome"
             onChange={(e) => setName(e.target.value)}
-          ></input>
-          <input
+          />
+          <Input
             type="email"
             name="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
+          <Input
             type="password"
             name="password"
             placeholder="Senha"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input
+          <Input
             type="password"
             name="confirmPassword"
             placeholder="Confirme a senha"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
-          <button type="submit" name="Entrar" onClick={handleSubmit}>
+          <Button type="submit" name="Entrar" onClick={handleSubmit}>
             Entrar
-          </button>
-        </FormSignUp>
+          </Button>
+        </FormLogin>
         <span>
-          <Link to="/">Já tem uma conta? Entre agora!</Link>
+          <LinkPage to="/">Já tem uma conta? Entre agora!</LinkPage>
         </span>
-      </SignUpContainer>
+      </Container>
     </>
   );
 }

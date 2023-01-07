@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Transaction from "../../Transaction";
+import Transaction from "../../components/Transaction";
 import axios from "axios";
 
-import UserContext from "../../../contexts/UserContext";
+import UserContext from "../../contexts/UserContext";
 import {
   Header,
   TransactionsContainer,
