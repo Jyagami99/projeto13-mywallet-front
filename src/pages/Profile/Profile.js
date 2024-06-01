@@ -27,10 +27,8 @@ function Profile() {
             },
           }
         );
-        console.log(data);
         setTransactions(data);
       } catch (error) {
-        console.log("foi aqui!");
         alert("Ocorreu um erro, por favor tente novamente!");
         console.log(error.response);
       }
@@ -38,28 +36,6 @@ function Profile() {
 
     getUserData();
   }, [user]);
-
-  function buildTransactions() {
-    if (transactions.length > 0) {
-      return transactions.map((transaction, index) => {
-        const { type, date, description, value } = transaction;
-        return (
-          <>
-            <Transaction
-              key={index}
-              type={type}
-              date={date}
-              description={description}
-              value={value}
-            />
-            <div>Saldo: {balanceSection}</div>
-          </>
-        );
-      });
-    } else {
-      return <p>Não há registro de entrada ou saída</p>;
-    }
-  }
 
   function buildBalance() {
     if (transactions) {
@@ -75,8 +51,28 @@ function Profile() {
     }
   }
 
-  const transacationsSection = buildTransactions();
+  function buildTransactions() {
+    if (transactions.length > 0) {
+      return transactions.map((transaction, index) => {
+        const { type, date, description, value } = transaction;
+        return (
+          <Transaction
+            key={index}
+            type={type}
+            date={date}
+            description={description}
+            value={value}
+          />
+        );
+      });
+    } else {
+      return <p>Não há registro de entrada ou saída</p>;
+    }
+  }
+
+  const transactionsSection = buildTransactions();
   const balanceSection = buildBalance();
+
   return (
     <ProfileContainer>
       <Header>
@@ -84,7 +80,8 @@ function Profile() {
         <ion-icon name="log-out-outline"></ion-icon>
       </Header>
       <TransactionsContainer>
-        <div>{transacationsSection}</div>
+        <div>{transactionsSection}</div>
+        <div>Saldo: {balanceSection}</div>
       </TransactionsContainer>
       <Footer>
         <Link to="/deposit">
