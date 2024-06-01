@@ -13,6 +13,7 @@ function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // eslint-disable-next-line no-unused-vars
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -26,7 +27,6 @@ function SignIn() {
         body
       );
       const { token, name } = data;
-      console.log(user, token);
 
       setUser({ name, token });
       navigate("/profile");
